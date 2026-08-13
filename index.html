@@ -60,10 +60,16 @@
     </section>
 
     <section id="contact" class="section contact">
-      <h2 class="section-title">Get in touch</h2>
-      <p>Have a project in mind, or just want to say hi?</p>
-      <a href="mailto:you@example.com" class="cta">you@example.com</a>
-    </section>
+  <h2 class="section-title">Get in touch</h2>
+  <p>Have a project in mind, or just want to say hi?</p>
+
+  <form action="https://formspree.io/f/YOUR_FORM_ID" method="POST" class="contact-form">
+    <input type="text" name="name" placeholder="Your name" required>
+    <input type="email" name="email" placeholder="Your email" required>
+    <textarea name="message" rows="5" placeholder="Your message" required></textarea>
+    <button type="submit" class="cta">Send message</button>
+  </form>
+</section>
   </main>
 
   <footer class="footer">
