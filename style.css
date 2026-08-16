@@ -187,3 +187,20 @@ a { color: inherit; text-decoration: none; }
   align-self: center;
   margin-top: 0.5rem;
 }
+.social-links {
+  display: flex;
+  justify-content: center;
+  gap: 1.2rem;
+  margin-bottom: 1rem;
+}
+
+.social-links a {
+  color: var(--ink);
+  opacity: 0.65;
+  transition: opacity 0.2s, color 0.2s;
+}
+
+.social-links a:hover {
+  opacity: 1;
+  color: var(--gold);
+}
