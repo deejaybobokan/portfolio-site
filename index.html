@@ -1,121 +1,192 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Barbora — Portfolio</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="style.css">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
 </head>
 <body>
+<x-dc>
+<template id="__bundler_thumbnail">
+  <svg viewBox="0 0 120 120" xmlns="http://www.w3.org/2000/svg">
+    <rect width="120" height="120" fill="#f6f5f1"/>
+    <circle cx="60" cy="40" r="15" fill="#b8873b"/>
+    <rect x="20" y="65" width="80" height="8" fill="#b8873b" rx="2"/>
+    <rect x="20" y="80" width="80" height="4" fill="#6b6f7a" rx="1"/>
+    <rect x="20" y="88" width="80" height="4" fill="#6b6f7a" rx="1"/>
+  </svg>
+</template>
 
-  <header class="hero">
-    <nav class="nav">
-      <span class="nav-mark">YN</span>
-      <div class="nav-links">
-        <a href="#work">Moja práca</a>
-        <a href="#about">O mne</a>
-        <a href="#contact">Kontakt</a>
-      </div>
-    </nav>
+<helmet>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: 'Fraunces', serif;
+      color: #12151c;
+      background: #f6f5f1;
+      line-height: 1.6;
+    }
+    h1, h2, h3 { font-family: 'Fraunces', serif; font-weight: 600; }
+    a { color: inherit; text-decoration: none; }
+    .menu-toggle { display: none; background: none; border: none; cursor: pointer; padding: 0.5rem; }
+    .menu-toggle span { display: block; width: 24px; height: 2px; background: #12151c; margin: 5px 0; transition: 0.3s; }
+    .menu-toggle.active span:nth-child(1) { transform: rotate(-45deg) translate(-8px, 6px); }
+    .menu-toggle.active span:nth-child(2) { opacity: 0; }
+    .menu-toggle.active span:nth-child(3) { transform: rotate(45deg) translate(-8px, -6px); }
+    @media (max-width: 768px) {
+      .menu-toggle { display: block; }
+      .nav-links { position: absolute; top: 60px; left: 0; right: 0; background: #f6f5f1; flex-direction: column; gap: 1rem; padding: 2rem 6vw; display: none; }
+      .nav-links.open { display: flex; }
+      .nav-links a { margin-left: 0; font-size: 1.1rem; }
+    }
+  </style>
+</helmet>
 
-   <div class="hero-inner">
-  <div class="hero-content">
-    <p class="eyebrow">ESTETICKÁ MEDICÍNA</p>
-    <h1><span>MUDr. Barbora Schultzová</span><br>doktorka praktickej všeobecnej a estetickej medicíny</h1>
-    <p class="hero-sub">atestovaná doktorka v odbore praktické všeobecné lekárstvo zaoberajúca sa estetickou medicínou</p>
-    <a href="#work" class="cta">See my work</a>
+<div style="background: #f6f5f1; color: #12151c; min-height: 92vh; display: flex; flex-direction: column; padding: 2rem 6vw; position: relative; overflow: hidden;">
+  <nav style="display: flex; justify-content: space-between; align-items: center; padding: 1rem 0; z-index: 2; position: relative;">
+    <span style="font-family: 'Fraunces', serif; font-size: 0.9rem; border: 1px solid rgba(18, 21, 28, 0.25); padding: 0.3rem 0.7rem; border-radius: 100px;">MUDr. Barbora Schultzová</span>
+    <button class="menu-toggle" onClick="document.querySelector('.nav-links').classList.toggle('open'); this.classList.toggle('active')">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+    <div class="nav-links" style="display: flex; gap: 0;">
+      <a href="#services" style="margin-left: 2rem; font-size: 1rem; font-weight: 500; color: #b8873b;" onMouseEnter="this.style.opacity='0.75'" onMouseLeave="this.style.opacity='1'">Služby</a>
+      <a href="#about" style="margin-left: 2rem; font-size: 1rem; font-weight: 500; color: #b8873b;" onMouseEnter="this.style.opacity='0.75'" onMouseLeave="this.style.opacity='1'">O mne</a>
+      <a href="#contact" style="margin-left: 2rem; font-size: 1rem; font-weight: 500; color: #b8873b;" onMouseEnter="this.style.opacity='0.75'" onMouseLeave="this.style.opacity='1'">Kontakt</a>
+    </div>
+  </nav>
+
+  <div style="flex: 1; display: flex; align-items: center; z-index: 2; position: relative;">
+    <div style="max-width: 620px;">
+      <p style="color: #b8873b; letter-spacing: 0.08em; text-transform: uppercase; font-size: 0.8rem; margin-bottom: 1.2rem; font-family: 'Inter', sans-serif;">ESTETICKÁ MEDICÍNA</p>
+      <h1 style="font-size: 3.2rem; margin-bottom: 1.5rem; line-height: 1.1;">
+        <span>MUDr. Barbora Schultzová</span><br>
+        <span style="font-weight: 400; font-size: 1.6rem;">doktorka praktickej všeobecnej a estetickej medicíny</span>
+      </h1>
+      <p style="font-size: 1.15rem; color: #6b6f7a; max-width: 480px; margin-bottom: 2.2rem; font-family: 'Inter', sans-serif;">Atestovaná lekárka so špecializáciou na estetickú medicínu. Botox • Kyselina hyalurónová • Prírodný výsledok.</p>
+      <a href="#contact" style="display: inline-block; background: #b8873b; color: #12151c; font-weight: 600; padding: 0.85rem 1.8rem; border-radius: 100px; width: fit-content; transition: transform 0.2s ease;" onMouseEnter="this.style.transform='translateY(-2px)'" onMouseLeave="this.style.transform='translateY(0)'">Objednajte sa</a>
+    </div>
+  </div>
+
+  <div style="position: absolute; top: 0; right: 0; width: 58%; height: 100%; z-index: 1; -webkit-mask-image: linear-gradient(to right, transparent 0%, rgba(0,0,0,0.5) 25%, black 55%); mask-image: linear-gradient(to right, transparent 0%, rgba(0,0,0,0.5) 25%, black 55%); overflow: hidden;">
+    <img src="blondie.png" alt="MUDr. Barbora Schultzová" style="width: 100%; height: 100%; object-fit: cover; object-position: center 20%;">
   </div>
 </div>
-<div class="hero-photo">
-  <img src="blondie.png" alt="MUDr. Barbora Schultzová">
-</div>
-  </header>
 
-  <main>
-    <section id="work" class="section">
-      <h2 class="section-title">Selected Work</h2>
-      <div class="work-grid">
-        <article class="work-card">
-          <div class="work-thumb">01</div>
-          <h3>Botulotoxín</h3>
-          <p>aplikácie botoxu do rôznych miest</p>
-        </article>
-        <article class="work-card">
-          <div class="work-thumb">02</div>
-          <h3>Kyselina hyalurónová</h3>
-          <p>aplikácia najmä do pier</p>
-        </article>
-        <article class="work-card">
-          <div class="work-thumb">03</div>
-          <h3>Prophilo</h3>
-          <p>aplikacia do miesta na tváry tam kde je treba </p>
-        </article>
+<main>
+  <section id="services" style="padding: 6rem 6vw; max-width: 1100px; margin: 0 auto;">
+    <h2 style="font-size: 2rem; margin-bottom: 2.5rem;">Moje služby</h2>
+    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 2rem;">
+      <article style="border-top: 1px solid rgba(18, 21, 28, 0.1); padding-top: 1.2rem;">
+        <div style="font-family: 'Fraunces', serif; font-size: 2rem; color: #b8873b; margin-bottom: 0.8rem;">01</div>
+        <h3 style="font-size: 1.2rem; margin-bottom: 0.5rem; font-family: 'Fraunces', serif;">Botulotoxín (Botox)</h3>
+        <p style="color: #6b6f7a; font-size: 0.95rem; font-family: 'Inter', sans-serif;">Zmierňovanie vráskania čela, medzi očami a pri očiach. Prirodzený a harmonický rezultát.</p>
+      </article>
+      <article style="border-top: 1px solid rgba(18, 21, 28, 0.1); padding-top: 1.2rem;">
+        <div style="font-family: 'Fraunces', serif; font-size: 2rem; color: #b8873b; margin-bottom: 0.8rem;">02</div>
+        <h3 style="font-size: 1.2rem; margin-bottom: 0.5rem; font-family: 'Fraunces', serif;">Kyselina hyalurónová</h3>
+        <p style="color: #6b6f7a; font-size: 0.95rem; font-family: 'Inter', sans-serif;">Zvýrazňovanie pier a korektúra vráskania. Objem s prirodzeným vzhľadom.</p>
+      </article>
+      <article style="border-top: 1px solid rgba(18, 21, 28, 0.1); padding-top: 1.2rem;">
+        <div style="font-family: 'Fraunces', serif; font-size: 2rem; color: #b8873b; margin-bottom: 0.8rem;">03</div>
+        <h3 style="font-size: 1.2rem; margin-bottom: 0.5rem; font-family: 'Fraunces', serif;">Biorevitalizácia</h3>
+        <p style="color: #6b6f7a; font-size: 0.95rem; font-family: 'Inter', sans-serif;">Hydratácia a omladzovanie kože. Citlivý prístup k zdraviu kože.</p>
+      </article>
+    </div>
+  </section>
+
+  <section style="padding: 6rem 6vw; max-width: 1200px; margin: 0 auto;">
+    <h2 style="font-size: 2rem; margin-bottom: 3.5rem; text-align: center;">Galéria pred a po</h2>
+    <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 2.5rem;">
+      <div style="border-radius: 12px; overflow: hidden; box-shadow: 0 8px 24px rgba(18, 21, 28, 0.08); aspect-ratio: 1;">
+        <img src="uploads/Snímka obrazovky 2026-08-18 214152-f231a1b3.png" alt="Kyselina hyalurónová - pred a po" style="width: 100%; height: 100%; object-fit: cover; object-position: center;">
       </div>
-    </section>
+      <div style="border-radius: 12px; overflow: hidden; box-shadow: 0 8px 24px rgba(18, 21, 28, 0.08); aspect-ratio: 1;">
+        <img src="uploads/Snímka obrazovky 2026-08-18 214805.png" alt="Kyselina hyalurónová - pred a po" style="width: 100%; height: 100%; object-fit: cover; object-position: center;">
+      </div>
+      <div style="border-radius: 12px; overflow: hidden; box-shadow: 0 8px 24px rgba(18, 21, 28, 0.08); aspect-ratio: 1;">
+        <img src="uploads/image0.jpeg" alt="Botox - pred a po" style="width: 100%; height: 100%; object-fit: cover; object-position: center;">
+      </div>
+      <div style="border-radius: 12px; overflow: hidden; box-shadow: 0 8px 24px rgba(18, 21, 28, 0.08); aspect-ratio: 1;">
+        <img src="uploads/Snímka obrazovky 2026-08-18 214518.png" alt="Kyselina hyalurónová - pred a po" style="width: 100%; height: 100%; object-fit: cover; object-position: center;">
+      </div>
+      <div style="border-radius: 12px; overflow: hidden; box-shadow: 0 8px 24px rgba(18, 21, 28, 0.08); aspect-ratio: 1;">
+        <img src="uploads/Snímka obrazovky 2026-08-18 214604.png" alt="Kyselina hyalurónová - pred a po" style="width: 100%; height: 100%; object-fit: cover; object-position: center;">
+      </div>
+      <div style="border-radius: 12px; overflow: hidden; box-shadow: 0 8px 24px rgba(18, 21, 28, 0.08); aspect-ratio: 1;">
+        <img src="uploads/Snímka obrazovky 2026-08-18 214152.png" alt="Kyselina hyalurónová - pred a po" style="width: 100%; height: 100%; object-fit: cover; object-position: center;">
+      </div>
+    </div>
+  </section>
 
-    <section id="about" class="section about">
-      <h2 class="section-title">O mne</h2>
-      <p class="about-text">
-Som lekárka so špecializáciou v odbore všeobecné praktické lekárstvo, pričom sa dlhodobo venujem aj oblasti estetickej medicíny. V estetike som našla spojenie medicíny, precíznosti a kreativity, ktoré ma veľmi baví a motivuje k neustálemu vzdelávaniu.
+  <section id="about" style="padding: 6rem 6vw; max-width: 1100px; margin: 0 auto;">
+    <h2 style="font-size: 2rem; margin-bottom: 2.5rem;">O mne</h2>
+    <p style="font-size: 1.2rem; max-width: 680px; color: #6b6f7a; line-height: 1.8; font-family: 'Inter', sans-serif;">
+      Som lekárka so špecializáciou v oblasti všeobecného praktického lekárstva a dlhodobou praxou v estetickej medicíne. Vzdelanie som získala na Lekárskej fakulte Masarykovej univerzity v Brne a v roku 2021 som absolvovala atestačnú skúšku.
+    </p>
+    <p style="font-size: 1.2rem; max-width: 680px; color: #6b6f7a; line-height: 1.8; margin-top: 1rem; font-family: 'Inter', sans-serif;">
+      V estetickej medicíne sa intenzívne vzdelávam a sledujem najnovšie trendy. Pri každom zákroku pristupujem individuálne a mojou prioritou je prirodzený výsledok, bezpečnosť a zachovanie vašej vlastnej identity.
+    </p>
+  </section>
 
-Lekárske vzdelanie som získala na Lekárskej fakulte Masarykovej univerzity v Brne, odbor Všeobecné lekárstvo, ktoré som ukončila v roku 2015. Po ukončení štúdia som pôsobila v Prahe, kde som získala skúsenosti v rôznych oblastiach medicíny. Pracovala som aj na GHC Clinic a následne ako rezidentka v odbore všeobecné praktické lekárstvo. Súčasťou mojej odbornej praxe bola aj práca na internom oddelení.
+  <section id="contact" style="text-align: center; padding: 6rem 6vw; max-width: 1100px; margin: 0 auto;">
+    <h2 style="font-size: 2rem; margin-bottom: 1.5rem;">Objednajte sa</h2>
+    <p style="color: #6b6f7a; margin-bottom: 2rem; font-family: 'Inter', sans-serif;">Kontaktujte ma na sociálnych sieťach alebo prostredníctvom emailu:</p>
+    
+    <div style="display: flex; justify-content: center; gap: 3rem; margin: 3rem 0; flex-wrap: wrap;">
+      <a href="https://www.instagram.com/dr_schultzova/" target="_blank" rel="noopener" style="display: flex; flex-direction: column; align-items: center; gap: 0.6rem; transition: transform 0.2s;" onMouseEnter="this.style.transform='translateY(-3px)'" onMouseLeave="this.style.transform='translateY(0)'">
+        <svg width="44" height="44" viewBox="0 0 48 48">
+          <defs>
+            <linearGradient id="igGradient" x1="0%" y1="100%" x2="100%" y2="0%">
+              <stop offset="0%" stop-color="#FFDB73"/>
+              <stop offset="25%" stop-color="#F7622C"/>
+              <stop offset="50%" stop-color="#D62976"/>
+              <stop offset="75%" stop-color="#962FBF"/>
+              <stop offset="100%" stop-color="#4F5BD5"/>
+            </linearGradient>
+          </defs>
+          <rect x="2" y="2" width="44" height="44" rx="13" fill="url(#igGradient)"/>
+          <rect x="14" y="14" width="20" height="20" rx="6" fill="none" stroke="#fff" stroke-width="2.3"/>
+          <circle cx="24" cy="24" r="5.5" fill="none" stroke="#fff" stroke-width="2.3"/>
+          <circle cx="33" cy="15" r="1.6" fill="#fff"/>
+        </svg>
+        <span style="font-size: 0.85rem; color: #12151c; font-weight: 500;">Instagram</span>
+      </a>
+      <a href="mailto:dr.schultzova@gmail.com" style="display: flex; flex-direction: column; align-items: center; gap: 0.6rem; transition: transform 0.2s;" onMouseEnter="this.style.transform='translateY(-3px)'" onMouseLeave="this.style.transform='translateY(0)'">
+        <svg width="44" height="44" viewBox="0 0 48 48" style="background: #b8873b; border-radius: 8px;">
+          <path d="M10 12h28c1.1 0 2 .9 2 2v20c0 1.1-.9 2-2 2H10c-1.1 0-2-.9-2-2V14c0-1.1.9-2 2-2z" fill="#b8873b"/>
+          <path d="M38 14L24 26 10 14" stroke="#f6f5f1" stroke-width="2" fill="none"/>
+        </svg>
+        <span style="font-size: 0.85rem; color: #12151c; font-weight: 500;">Email</span>
+      </a>
+      <a href="https://www.facebook.com/p/Dr-Schultzova-100087621760103/" target="_blank" rel="noopener" style="display: flex; flex-direction: column; align-items: center; gap: 0.6rem; transition: transform 0.2s;" onMouseEnter="this.style.transform='translateY(-3px)'" onMouseLeave="this.style.transform='translateY(0)'">
+        <svg width="44" height="44" viewBox="0 0 48 48">
+          <circle cx="24" cy="24" r="22" fill="#1877F2"/>
+          <path d="M27 24h4.5l0.7-5H27v-2.8c0-1.5.4-2.5 2.6-2.5H32V9.2C31.6 9.1 30.2 9 28.6 9c-3.4 0-5.8 2.1-5.8 5.9V19h-4v5h4v14h5.2V24z" fill="#fff"/>
+        </svg>
+        <span style="font-size: 0.85rem; color: #12151c; font-weight: 500;">Facebook</span>
+      </a>
+    </div>
+  </section>
+</main>
 
-V roku 2021 som úspešne absolvovala atestačnú skúšku zo všeobecného praktického lekárstva.
-
-Popri svojej lekárskej praxi som sa začala intenzívne venovať estetickej medicíne. Absolvovala som množstvo odborných kurzov, školení a vzdelávaní zameraných na moderné estetické postupy. V tejto oblasti sa neustále vzdelávam, sledujem nové trendy a postupy a svoje znalosti pravidelne rozširujem.
-
-Pri estetickej medicíne je pre mňa najdôležitejšia odbornosť, bezpečnosť a prirodzenosť výsledku. Verím, že estetické zákroky by nemali meniť človeka, ale citlivo zvýrazniť jeho prirodzené črty, podporiť sebavedomie a zachovať jeho vlastnú identitu.
-
-Ku každému klientovi pristupujem individuálne. Dôležité je pre mňa najprv pochopiť jeho predstavu a následne spolu nájsť riešenie, ktoré je medicínsky správne, esteticky harmonické a rešpektuje prirodzené proporcie tváre.
-
-Estetická medicína je pre mňa kombináciou medicíny, precíznosti a citu pre detail – a práve to je oblasť, ktorá ma na mojej práci najviac baví.      </p>
-    </section>
-
-    <section id="contact" class="section contact">
-  <h2 class="section-title">Get in touch</h2>
-  <p>Have a project in mind, or just want to say hi?</p>
-
-<form action="https://formspree.io/f/xnpagqdn" method="POST" class="contact-form">
-      <input type="text" name="name" placeholder="Your name" required>
-    <input type="email" name="email" placeholder="Your email" required>
-    <textarea name="message" rows="5" placeholder="Your message" required></textarea>
-    <button type="submit" class="cta">Send message</button>
-  </form>
-</section>
-  </main>
-
-<footer class="footer">
-  <div class="social-links">
-    <a href="https://instagram.com/dr_schultzova" target="_blank" rel="noopener" aria-label="Instagram">
-      <svg width="44" height="44" viewBox="0 0 48 48">
-        <defs>
-          <linearGradient id="igGradient" x1="0%" y1="100%" x2="100%" y2="0%">
-            <stop offset="0%" stop-color="#FFDB73"/>
-            <stop offset="25%" stop-color="#F7622C"/>
-            <stop offset="50%" stop-color="#D62976"/>
-            <stop offset="75%" stop-color="#962FBF"/>
-            <stop offset="100%" stop-color="#4F5BD5"/>
-          </linearGradient>
-        </defs>
-        <rect x="2" y="2" width="44" height="44" rx="13" fill="url(#igGradient)"/>
-        <rect x="14" y="14" width="20" height="20" rx="6" fill="none" stroke="#fff" stroke-width="2.3"/>
-        <circle cx="24" cy="24" r="5.5" fill="none" stroke="#fff" stroke-width="2.3"/>
-        <circle cx="33" cy="15" r="1.6" fill="#fff"/>
-      </svg>
-      <span class="social-label">IG: dr_schultzova</span>
-    </a>
-    <a href="https://www.facebook.com/p/Dr-Schultzova-100087621760103/" target="_blank" rel="noopener" aria-label="Facebook">
-      <svg width="44" height="44" viewBox="0 0 48 48">
-        <circle cx="24" cy="24" r="22" fill="#1877F2"/>
-        <path d="M27 24h4.5l0.7-5H27v-2.8c0-1.5.4-2.5 2.6-2.5H32V9.2C31.6 9.1 30.2 9 28.6 9c-3.4 0-5.8 2.1-5.8 5.9V19h-4v5h4v14h5.2V24z" fill="#fff"/>
-      </svg>
-      <span class="social-label">FB: Dr. Schultzova</span>
-    </a>
-  </div>
-  <p>&copy; 2026 MUDr. Barbora Schultzová. Built with GitHub &amp; Vercel.</p>
+<footer style="text-align: center; padding: 2.5rem 1rem; color: #6b6f7a; font-size: 0.85rem; border-top: 1px solid rgba(18, 21, 28, 0.1);">
+  <p>&copy; 2026 MUDr. Barbora Schultzová. Estetická medicína.</p>
 </footer>
-
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic {
+  renderVals() {
+    return {};
+  }
+}
+</script>
+</body>
+</html>
 </body>
 </html>
